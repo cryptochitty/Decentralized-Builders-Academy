@@ -8,7 +8,8 @@ type LearningModule = {
     status: 'Start Learning' | 'Coming Soon'
 };
 
-const LearningModuleCard = ({ title, description, tags, status }: LearningModule) => {
+// FIX: Use React.FC to correctly type the component props, which allows for React-specific props like `key`.
+const LearningModuleCard: React.FC<LearningModule> = ({ title, description, tags, status }) => {
     const { enrolledModules, enrollInModule } = useLearningProgress();
     const isEnrolled = enrolledModules.includes(title);
 

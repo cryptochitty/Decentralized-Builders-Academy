@@ -2,7 +2,7 @@ import React from 'react';
 import { useEventData } from '../hooks/useEventData';
 import { TrashIcon } from './icons';
 
-const MyRegistrationsPage = () => {
+const MyRegistrationsPage: React.FC = () => {
     const { registrations, removeRegistration } = useEventData();
 
     return (

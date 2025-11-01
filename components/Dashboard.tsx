@@ -3,7 +3,7 @@ import { useEventData, Proposal } from '../hooks/useEventData';
 import { useUserProfile } from '../hooks/useUserProfile';
 import { MegaphoneIcon, TicketIcon, CalendarIcon } from './icons';
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   const { proposals, registrations } = useEventData();
   const { profile } = useUserProfile();
 
