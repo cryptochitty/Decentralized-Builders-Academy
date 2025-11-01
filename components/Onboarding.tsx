@@ -30,17 +30,11 @@ const Onboarding = () => {
 
 const ParticipantFlow = () => {
     const { isConnected, signMessage } = useWallet();
-    const { registrations, addRegistration, getGlobalProposals } = useEventData();
+    const { registrations, addRegistration, globalProposals } = useEventData();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [registeringId, setRegisteringId] = useState<string | null>(null);
-    const [availableEvents, setAvailableEvents] = useState<Proposal[]>([]);
 
-    useEffect(() => {
-        const approvedEvents = getGlobalProposals().filter(p => p.status === 'Approved');
-        setAvailableEvents(approvedEvents);
-    }, [getGlobalProposals]);
-
-
+    const availableEvents = globalProposals.filter(p => p.status === 'Approved');
     const registeredIds = registrations.map(r => r.id);
 
     const handleRegister = async (event: Proposal) => {
@@ -103,7 +97,6 @@ const ParticipantFlow = () => {
              {!isConnected && (
                 <p className="text-center text-yellow-400 text-sm mt-6">Please <button type="button" onClick={() => setIsModalOpen(true)} className="underline hover:text-yellow-300">connect your wallet</button> to register for events.</p>
             )}
-             {/* Fix: Removed onConnect prop which is not defined on ConnectWalletModalProps */}
              <ConnectWalletModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     )

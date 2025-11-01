@@ -137,25 +137,24 @@ export const useEventData = () => {
 
   const [proposals, setProposals] = useState<Proposal[]>([]);
   const [registrations, setRegistrations] = useState<Registration[]>([]);
+  const [globalProposals, setGlobalProposals] = useState<Proposal[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fix: Use `number` for the return type of setInterval in a browser environment.
   const intervalRef = useRef<number | null>(null);
 
   // -----------------------------------------------------------------
   // Load user data
   // -----------------------------------------------------------------
-  const loadUserData = useCallback(() => {
-    if (!address || !isConnected) {
-      setProposals([]);
-      setRegistrations([]);
+  const loadAllData = useCallback(() => {
+    if (!isConnected) {
       setLoading(false);
       return;
     }
-
+    
     try {
-      const data = getUserData(address);
+      setGlobalProposals(getGlobalProposals());
+      const data = getUserData(address!);
       setProposals(data.proposals);
       setRegistrations(data.registrations);
     } catch (err: any) {
@@ -170,15 +169,23 @@ export const useEventData = () => {
   // Poll global proposals for auto-approval updates
   // -----------------------------------------------------------------
   useEffect(() => {
-    loadUserData();
+    loadAllData();
 
-    if (!address || !isConnected) return;
+    if (!isConnected) return;
 
     intervalRef.current = window.setInterval(() => {
-      const global = getGlobalProposals();
-      const userData = getUserData(address);
+      const globalFromStorage = getGlobalProposals();
+      
+      setGlobalProposals(currentGlobal => {
+        if (JSON.stringify(currentGlobal) !== JSON.stringify(globalFromStorage)) {
+            return globalFromStorage;
+        }
+        return currentGlobal;
+      });
+      
+      const userData = getUserData(address!);
       const updatedProposals = userData.proposals.map((p) => {
-        const globalMatch = global.find((g) => g.id === p.id);
+        const globalMatch = globalFromStorage.find((g) => g.id === p.id);
         return globalMatch ? { ...p, status: globalMatch.status } : p;
       });
 
@@ -186,7 +193,7 @@ export const useEventData = () => {
         JSON.stringify(updatedProposals) !== JSON.stringify(userData.proposals)
       ) {
         const newData = { ...userData, proposals: updatedProposals };
-        setUserData(address, newData);
+        setUserData(address!, newData);
         setProposals(updatedProposals);
       }
     }, 2000);
@@ -194,7 +201,7 @@ export const useEventData = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [address, isConnected, loadUserData]);
+  }, [address, isConnected, loadAllData]);
 
   // -----------------------------------------------------------------
   // Add Proposal
@@ -220,6 +227,7 @@ export const useEventData = () => {
 
       // Add to global
       addGlobalProposal(newProposal);
+      setGlobalProposals(getGlobalProposals()); // Eagerly update state
     },
     [address]
   );
@@ -267,8 +275,8 @@ export const useEventData = () => {
   // -----------------------------------------------------------------
   const refresh = useCallback(() => {
     setLoading(true);
-    loadUserData();
-  }, [loadUserData]);
+    loadAllData();
+  }, [loadAllData]);
 
   // -----------------------------------------------------------------
   // Return
@@ -276,12 +284,12 @@ export const useEventData = () => {
   return {
     proposals,
     registrations,
+    globalProposals,
     loading,
     error,
     addProposal,
     addRegistration,
     removeRegistration,
-    getGlobalProposals,
     refresh,
   };
 };

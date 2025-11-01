@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useEffect, useMemo } from 'react';
@@ -26,10 +27,10 @@ const MyProposalsPage: React.FC = () => {
   const { profile } = useUserProfile();
   const {
     proposals,
+    globalProposals,
     loading,
     error,
     refresh,
-    getGlobalProposals,
   } = useEventData();
 
   // Poll for status updates
@@ -40,12 +41,11 @@ const MyProposalsPage: React.FC = () => {
 
   // Merge user proposals with global status
   const enrichedProposals = useMemo(() => {
-    const global = getGlobalProposals();
     return proposals.map((p) => {
-      const globalMatch = global.find((g) => g.id === p.id);
+      const globalMatch = globalProposals.find((g) => g.id === p.id);
       return globalMatch ? { ...p, status: globalMatch.status } : p;
     });
-  }, [proposals, getGlobalProposals]);
+  }, [proposals, globalProposals]);
 
   if (loading) {
     return (
