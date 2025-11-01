@@ -1,6 +1,6 @@
 // src/components/Header.tsx
 import React from 'react';
-import { GbaLogo } from './icons';
+import { DbaLogo } from './icons';
 
 interface HeaderProps {
   onJoin: () => void;
@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ onJoin }) => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            <GbaLogo className="h-9 w-auto" />
+            <DbaLogo className="h-9 w-auto" />
           </a>
 
           <button

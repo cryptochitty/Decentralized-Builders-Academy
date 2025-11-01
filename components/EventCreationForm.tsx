@@ -83,7 +83,7 @@ const EventCreationForm: React.FC = () => {
             Propose a New Event
           </h1>
           <p className="text-gray-400 text-lg">
-            Share your idea with the Global Builders Academy community.
+            Share your idea with the Decentralized Builders Academy community.
           </p>
         </div>
 

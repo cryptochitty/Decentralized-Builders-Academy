@@ -75,7 +75,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onJoin }) => {
           </h2>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
             {profile
-              ? `Explore personalized opportunities to contribute and grow within the GBA ecosystem.`
+              ? `Explore personalized opportunities to contribute and grow within the DBA ecosystem.`
               : `Whether you're a developer, designer, or enthusiast, there are many ways to contribute.`}
           </p>
         </div>
@@ -91,7 +91,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onJoin }) => {
                 transform hover:-translate-y-1 transition-all duration-300
                 focus:outline-none focus:ring-4 focus:ring-lime-400 focus:ring-offset-2 focus:ring-offset-[#050505]
               `}
-              aria-label="Join Global Builders Academy to get involved"
+              aria-label="Join Decentralized Builders Academy to get involved"
             >
               Join Now to Get Started
             </button>
@@ -129,14 +129,14 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onJoin }) => {
           <Card
             icon={LightbulbIcon}
             title="Propose an Idea"
-            description="Shape GBA's future via governance and community proposals."
+            description="Shape DBA's future via governance and community proposals."
             link="#/events"
             isInternal
           />
           <Card
             icon={GlobeIcon}
             title="Become an Ambassador"
-            description="Organize local meetups and grow GBA in your region."
+            description="Organize local meetups and grow DBA in your region."
             link="#"
             isInternal
           />

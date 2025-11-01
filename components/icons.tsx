@@ -5,12 +5,10 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
 }
 
-export const GbaLogo = ({ className }: { className?: string }) => (
-  <img 
-    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I0E1RkE1MjtzdG9wLW9wYWNpdHk6MSIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMzNUQwN0Y7c3RvcC1vcGFjaXR5OjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZD0iTTUwIDUgTDk1IDI3LjUgTDk1IDcyLjUgTDUwIDk1IEw1IDcyLjUgTDUgMjcuNSBaIiBmaWxsPSJ1cmwoI2dyYWQxKSIgLz48cGF0aCBkPSJNNTAgMTUgTDg1IDMyLjUgViA2Ny41IEw1MCA4NSBMMTUgNjcuNSBWIDMyLjUgWiIgZmlsbD0iYmxhY2siIC8+PHRleHQgeD0iNTAiIHk9IjYyIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjMwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9ImJvbGQiPkdCQTwvdGV4dD48L3N2Zz4="
-    alt="GBA Logo"
-    className={className}
-  />
+export const DbaLogo = ({ className }: { className?: string }) => (
+  <div className={`font-mono font-extrabold text-2xl tracking-tighter text-white flex items-center ${className}`}>
+    DB<span className="text-lime-400">A</span>
+  </div>
 );
 
 export const MetamaskIcon = (props: IconProps) => (

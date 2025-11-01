@@ -83,7 +83,7 @@ const ProfileSetupPage: React.FC<ProfileSetupPageProps> = ({ onProfileSave }) =>
         {/* Header */}
         <div className="text-center mb-10">
           <div className="w-14 h-14 bg-lime-400 rounded-full flex items-center justify-center text-black font-mono font-extrabold text-3xl mx-auto mb-4 shadow-lg shadow-lime-500/20">
-            G
+            D
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
             Welcome to the Academy

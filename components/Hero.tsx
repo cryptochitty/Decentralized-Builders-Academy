@@ -41,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({ onJoin }) => {
               bg-lime-400 text-black hover:bg-lime-300 hover:shadow-xl hover:shadow-lime-500/30
               transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-lime-400 focus:ring-offset-2 focus:ring-offset-black
             `}
-            aria-label="Join Global Builders Academy"
+            aria-label="Join Decentralized Builders Academy"
           >
             Join the Academy
           </button>

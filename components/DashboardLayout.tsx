@@ -3,7 +3,7 @@ import React, { useState, Fragment } from 'react';
 import { Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
 import { useWallet } from '../hooks/useWallet';
 import { useUserProfile } from '../hooks/useUserProfile';
-import { GbaLogo, HomeIcon, BriefcaseIcon, TicketIcon, BookOpenIcon, UserCircleIcon, SparklesIcon, MegaphoneIcon } from './icons';
+import { DbaLogo, HomeIcon, BriefcaseIcon, TicketIcon, BookOpenIcon, UserCircleIcon, SparklesIcon, MegaphoneIcon } from './icons';
 
 // Page Components
 import Dashboard from './Dashboard';
@@ -79,7 +79,7 @@ const DashboardLayout: React.FC = () => {
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col">
         <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-black px-6 pb-4 border-r border-gray-800">
           <Link to="/" className="flex h-16 shrink-0 items-center">
-            <GbaLogo className="h-10 w-auto" />
+            <DbaLogo className="h-10 w-auto" />
           </Link>
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">

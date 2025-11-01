@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
           {/* Left: Copyright & Tagline */}
           <div className="text-center md:text-left space-y-1">
             <p className="text-gray-400 text-sm">
-              &copy; {year} <span className="font-semibold">Global Builders Academy</span>. All rights reserved.
+              &copy; {year} <span className="font-semibold">Decentralized Builders Academy</span>. All rights reserved.
             </p>
             <p className="text-xs text-gray-500">
               An open-source, community-driven initiative.
@@ -72,17 +72,17 @@ const Footer: React.FC = () => {
             <SocialLink
               href="https://twitter.com/gba_web3"
               icon={TwitterIcon}
-              label="Follow GBA on X (Twitter)"
+              label="Follow DBA on X (Twitter)"
             />
             <SocialLink
               href="https://github.com/cryptochitty/global-builders-academy"
               icon={GithubIcon}
-              label="View GBA on GitHub"
+              label="View DBA on GitHub"
             />
             <SocialLink
               href="https://discord.gg/gba"
               icon={DiscordIcon}
-              label="Join GBA on Discord"
+              label="Join DBA on Discord"
             />
           </div>
         </div>

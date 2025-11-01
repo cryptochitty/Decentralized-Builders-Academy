@@ -21,11 +21,11 @@ const About: React.FC = () => {
             id="about-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight"
           >
-            What is <span className="text-lime-400">GBA</span>?
+            What is <span className="text-lime-400">DBA</span>?
           </h2>
 
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed tracking-wide">
-            Global Builders Academy (GBA) is a global, decentralized ecosystem designed to empower the next generation of Web3 builders. We provide the resources, mentorship, and collaborative environment needed to turn innovative ideas into reality. Our platform is built on the principles of open-source collaboration, transparency, and community ownership.
+            Decentralized Builders Academy (DBA) is a global, decentralized ecosystem designed to empower the next generation of Web3 builders. We provide the resources, mentorship, and collaborative environment needed to turn innovative ideas into reality. Our platform is built on the principles of open-source collaboration, transparency, and community ownership.
           </p>
         </div>
       </div>

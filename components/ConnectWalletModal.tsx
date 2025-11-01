@@ -122,7 +122,7 @@ const ConnectWalletModal: React.FC<ConnectWalletModalProps> = ({
         {/* Header */}
         <h2 className="text-2xl font-bold text-center text-white mb-2">Connect Wallet</h2>
         <p className="text-gray-400 text-center mb-6 text-sm">
-          Choose your wallet to access Global Builders Academy
+          Choose your wallet to access Decentralized Builders Academy
         </p>
 
         {/* Error Alert */}
